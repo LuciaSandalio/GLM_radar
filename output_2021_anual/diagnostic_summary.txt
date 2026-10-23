@@ -1,0 +1,14 @@
+PERIODO: 2021
+
+GLM clusters: 42,915
+Tracks totales: 7,906
+
+Tracks <=240 km: 4,718
+
+Convectivos seleccionados:
+  long_intense: 865
+  short_intense: 461
+  long_moderate: 461
+
+Total eventos seleccionados: 1,787
+Días radar requeridos: 135

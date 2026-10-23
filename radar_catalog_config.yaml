@@ -1,0 +1,56 @@
+# =====================================================================
+# CONFIGURATION FILE FOR GLM & RMA-1 CONVECTIVE CATALOG PIPELINE
+# =====================================================================
+
+radar:
+  name: "RMA-1"
+  lat: -31.4413
+  lon: -64.1919
+
+domain:
+  # General Córdoba study domain for GLM flash clipping
+  # [min_lon, min_lat, max_lon, max_lat]
+  cordoba_bbox: [-66.0, -35.6, -61.8, -29.3]
+
+s3:
+  bucket_primary: "noaa-goes16"
+  bucket_fallback: "noaa-goes19"
+  prefix: "GLM-L2-LCFA"
+  region: "us-east-1"
+  anon: true
+  max_listing_threads: 24
+
+tracking:
+  time_bin_minutes: 10
+  cluster_radius_km: 15.0
+  min_flashes_cluster: 5
+  max_link_distance_km: 30.0
+  max_gap_windows: 1
+
+classification:
+  mode: "frozen"  # producción (usar "computed" sólo para diagnóstico exploratorio)
+  # Umbrales constantes de referencia (calibrados con P75 anual 2021)
+  duration_threshold_min: 80.0
+  intensity_threshold_flashes_10min: 50.0
+
+selection:
+  # Condición: min(distance_to_radar_km) <= radar_intersection_radius_km
+  radar_intersection_radius_km: 240.0
+
+  include_types:
+    - "long_intense"
+    - "short_intense"
+    - "long_moderate"
+
+  priority_mapping:
+    long_intense: "Priority_A"
+    short_intense: "Priority_B"
+    long_moderate: "Priority_B"
+
+download:
+  # Ventana temporal de descarga: [t_start - buffer_before, t_end + buffer_after]
+  buffer_before_min: 60
+  buffer_after_min: 60
+
+processing:
+  download_workers: 24

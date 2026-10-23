@@ -1,0 +1,11 @@
+numpy
+pandas
+scipy
+scikit-learn
+s3fs
+xarray
+h5netcdf
+pyarrow
+pyyaml
+matplotlib
+tqdm

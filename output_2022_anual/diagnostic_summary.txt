@@ -1,0 +1,14 @@
+PERIODO: 2022
+
+GLM clusters: 41,009
+Tracks totales: 7,447
+
+Tracks <=240 km: 4,366
+
+Convectivos seleccionados:
+  long_intense: 838
+  short_intense: 449
+  long_moderate: 420
+
+Total eventos seleccionados: 1,707
+Días radar requeridos: 117
